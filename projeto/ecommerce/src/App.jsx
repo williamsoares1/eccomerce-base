@@ -1,11 +1,13 @@
 import './App.css'
-import Routes from './routes/Routes'
-
+import Routes from "./Routes/Routes"
+import { UserProvider } from './context/UsuarioContext'
 
 function App() {
   return (
     <>
-    <Routes />
+    <UserProvider>
+      <Routes />
+    </UserProvider>
     </>
   )
 }
