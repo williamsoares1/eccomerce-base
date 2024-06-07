@@ -9,13 +9,23 @@ const UserProvider = ({ children }) => {
     const [senha, setSenha] = useState('')
     const [usuarios, setUsuarios] = useState([])
     const [usuarioEncontrado, setUsuarioEncontrado] = useState({})
-    const [senhaConferida, setSenhaConferida] = useState('')
+    const [senhaConferida, setSenhaConferida] = useState(undefined)
+    const [campoEmail, setCampoEmail] = useState()
+    const [usuarioLogado, setUsuarioLogado] = useState(false)
 
     const validacaoLogin = async (email, senha) => {
         const response = await api.get(`/users?email=${email}`)
+        
         const esp = response.data.find((u, index) => index == 0)
+
+        if(response.data.length != 1){
+            setCampoEmail(<h1>Email não encontrado</h1>)
+        }
+
         setUsuarioEncontrado(esp)
-        setSenhaConferida(esp.senha == senha ? true : false)
+        console.log("antes", senhaConferida)
+        setSenhaConferida(esp && esp.senha === senha)
+        console.log("dps", senhaConferida)
     }
 
     const getAll = async () => {
@@ -25,7 +35,7 @@ const UserProvider = ({ children }) => {
 
     return (        
             <UsuarioContext.Provider value={
-                { nome, email, senha, usuarios, setEmail, setSenha, setUsuarios, getAll, validacaoLogin, usuarioEncontrado, senhaConferida }
+                { nome, email, senha, usuarios, usuarioLogado, campoEmail, setEmail, setSenha, setUsuarios, setUsuarioLogado, getAll, validacaoLogin, usuarioEncontrado, senhaConferida }
             }>
                 {children}
             </UsuarioContext.Provider>
