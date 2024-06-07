@@ -1,43 +1,43 @@
-import { useContext, useState, useEffect } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import  {CarrinhoContext} from '../context/CarrinhoContext'
-import api from '../api/api'
-import { useHistory } from 'react-router-dom'
+import { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
+import { CarrinhoContext } from '../context/CarrinhoContext';
+import api from '../api/api';
+import { useHistory } from 'react-router-dom';
 
-const Carrinho = () => {
-  const { carrinho, setCarrinho } = useContext(CarrinhoContext)
-  const { user } = useContext(AuthContext)
-  const [total, setTotal] = useState(0)
-  const history = useHistory()
+const TelaCarrinho = () => {
+  const { carrinho, setCarrinho } = useContext(CarrinhoContext);
+  const { user } = useContext(AuthContext);
+  const [total, setTotal] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const calcularTotal = () => {
-      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.quantidade, 0)
-      setTotal(total)
+      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.quantidade, 0);
+      setTotal(total);
     };
-    calcularTotal()
-  }, [carrinho])
+    calcularTotal();
+  }, [carrinho]);
 
   const handleQuantidadeChange = (id, quantidade) => {
     const novoCarrinho = carrinho.map(item =>
       item.id === id ? { ...item, quantidade: Number(quantidade) } : item
     );
-    setCarrinho(novoCarrinho)
+    setCarrinho(novoCarrinho);
   };
 
   const handleRemoverItem = (id) => {
     const novoCarrinho = carrinho.filter(item => item.id !== id);
-    setCarrinho(novoCarrinho)
+    setCarrinho(novoCarrinho);
   };
 
   const handleEsvaziarCarrinho = () => {
-    setCarrinho([])
+    setCarrinho([]);
   };
 
   const handleFinalizarCompra = async () => {
     if (!user) {
-      console.error('Usuário não está logado.')
-      history.push('/login')
+      console.error('Usuário não está logado.');
+      history.push('/login');
     }
 
     try {
@@ -56,12 +56,12 @@ const Carrinho = () => {
 
       await Promise.all(carrinho.map(item =>
         api.put(`/produtos/${item.id}`, { quantidade: item.quantidade - item.quantidade })
-      ))
+      ));
 
-      setCarrinho([])
-      history.push('/pedidos')
+      setCarrinho([]);
+      history.push('/pedidos');
     } catch (error) {
-      console.error('Erro ao finalizar compra:', error)
+      console.error('Erro ao finalizar compra:', error);
     }
   };
 
@@ -94,7 +94,7 @@ const Carrinho = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Carrinho
+export default TelaCarrinho;

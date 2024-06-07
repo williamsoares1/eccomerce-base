@@ -1,5 +1,5 @@
+
 import { createContext, useState } from 'react';
-import PropTypes from 'prop-types'; // Importe o PropTypes
 
 export const AuthContext = createContext();
 
@@ -19,9 +19,4 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-
-// Adicione a validação das props usando PropTypes
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired // Garante que children seja um nó React e seja obrigatório
 };
