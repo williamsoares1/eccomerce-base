@@ -1,14 +1,23 @@
-import {useState} from "react";
-import './TelaLogin.css';
+import {useContext, useState} from "react";
+import '../styles/TelaLogin.css';
+import { UsuarioContext } from "../context/UsuarioContext";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+const TelaLogin = () => {
+  const history = useHistory()
+
+  const { senha, setSenha, email, setEmail, validacaoLogin, usuarioEncontrado, senhaConferida } = useContext(UsuarioContext)
+
+  const validarSubmit = (e) => {
+    e.preventDefault()
+    validacaoLogin(email, senha)
+  }
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form className="login-form">
+      <form className="login-form" onSubmit={validarSubmit}>
         <div className="login-form-group">
           <label className="login-label" htmlFor="email">Email:</label>
           <input
@@ -33,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default TelaLogin;

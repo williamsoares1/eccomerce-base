@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 // import Home from '../pages/Home';
 import TelaCadastro from '../pages/TelaCadastro';
 // import TelaCarrinho from '../pages/TelaCarrinho';
-// import TelaLogin from '../pages/TelaLogin';
+import TelaLogin from '../pages/TelaLogin';
 // import TelaPedidos from '../pages/TelaPedidos';
 // import TelaProdutoEsp from '../pages/TelaProdutoEsp';
 // import TelaProdutos from '../pages/TelaProdutos';
@@ -22,8 +22,8 @@ const Routes = () => {
                     <Route exact path='/TelaProdutos' component={TelaProdutos} />
                     <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
                     <Route exact path='/TelaCadastro' component={TelaCadastro} />
-                    {/* <Route exact path='/TelaLogin' component={TelaLogin} />
-                    <Route exact path='/TelaCarrinho' component={TelaCarrinho} />
+                    <Route exact path='/TelaLogin' component={TelaLogin} />
+                    {/* <Route exact path='/TelaCarrinho' component={TelaCarrinho} />
                     <Route exact path='/TelaPedidos' component={TelaPedidos} /> */}
                 </Switch>
 

@@ -1,13 +1,13 @@
 import './App.css'
-import Pedido from './components/Pedidos/Pedido'
-import { PedidoProvider } from './context/PedidoContext'
+import Routes from "./Routes/Routes"
+import { UserProvider } from './context/UsuarioContext'
 
 function App() {
   return (
     <>
-    <PedidoProvider>
-      <Pedido/>
-    </PedidoProvider>
+    <UserProvider>
+      <Routes />
+    </UserProvider>
     </>
   )
 }
