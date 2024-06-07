@@ -2,12 +2,16 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { ProdutoProvider } from './context/ProdutosContext'
+import Produto from './components/Produto/Produto'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+    <ProdutoProvider>
+      <Produto/>
+    </ProdutoProvider>
     </>
   )
 }
