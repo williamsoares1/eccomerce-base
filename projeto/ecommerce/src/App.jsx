@@ -5,7 +5,6 @@ import { UserProvider } from './context/UsuarioContext'
 import Usuario from './components/Usuario/Usuario'
 
 function App() {
-
   return (
     <>
     <UserProvider>
