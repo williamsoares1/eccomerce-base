@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-// import Home from '../pages/Home';
+import Home from '../pages/Home/Home';
 import TelaCadastro from '../pages/TelaCadastro';
 // import TelaCarrinho from '../pages/TelaCarrinho';
 // import TelaLogin from '../pages/TelaLogin';
@@ -18,8 +18,8 @@ const Routes = () => {
                 </div>
 
                 <Switch>
-                    {/* <Route exact path='/' component={Home} />
-                    <Route exact path='/TelaProdutos' component={TelaProdutos} />
+                    <Route exact path='/' component={Home} />
+                    {/* <Route exact path='/TelaProdutos' component={TelaProdutos} />
                     <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
                     <Route exact path='/TelaCadastro' component={TelaCadastro} />
                     {/* <Route exact path='/TelaLogin' component={TelaLogin} />

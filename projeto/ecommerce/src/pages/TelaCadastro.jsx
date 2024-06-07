@@ -53,11 +53,11 @@ const Cadastro = () => {
         <p />
         <label htmlFor="email">Email:</label>
         <br />
-        <input id="email" type="email" value={email} onChange={handleEmailChange} />
+        <input id="email" type="email" value={email} onChange={handleEmailChange} required/>
         <p />
         <label htmlFor="password">Senha:</label>
         <br />
-        <input id="password" type="password" value={password} onChange={handlePasswordChange} />
+        <input id="password" type="password" value={password} onChange={handlePasswordChange} required/>
         <p />
         <button type="submit">Cadastrar</button>
       </form>

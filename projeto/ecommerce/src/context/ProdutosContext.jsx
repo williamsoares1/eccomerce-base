@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import api from "../api/api"
 
 const ProdutoContexto = createContext({})
@@ -16,12 +16,28 @@ const ProdutoProvider = ({ children }) => {
         const response = await api.get("/produto")
         setProdutos(response.data)
     }
+    console.log(produtos)
 
     return (
-        <ProdutoContexto.Provider value={{ produtos, img, nome, descricao, preco, estoque, avaliacao, setAvaliacao, setEstoque, getAll }}>
+        <ProdutoContexto.Provider value={{
+            produtos, 
+            img, 
+            nome, 
+            descricao, 
+            preco, 
+            estoque, 
+            avaliacao, 
+            setImg, 
+            setNome, 
+            setDescricao, 
+            setPreco, 
+            setEstoque, 
+            setAvaliacao, 
+            getAll, 
+        }}>
             {children}
         </ProdutoContexto.Provider>
-    )
+    );
 }
 
 export { ProdutoContexto, ProdutoProvider }
