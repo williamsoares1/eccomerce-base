@@ -1,15 +1,13 @@
 import './App.css'
-import { ProdutoProvider } from './context/ProdutosContext'
-import Produto from './components/Produto/Produto'
-import { UserProvider } from './context/UsuarioContext'
-import Usuario from './components/Usuario/Usuario'
+import Pedido from './components/Pedidos/Pedido'
+import { PedidoProvider } from './context/PedidoContext'
 
 function App() {
   return (
     <>
-    <UserProvider>
-      <Usuario/>
-    </UserProvider>
+    <PedidoProvider>
+      <Pedido/>
+    </PedidoProvider>
     </>
   )
 }
