@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import api from '../api/api'
-import { useHistory } from 'react-router-dom'
+import { useState } from 'react';
+import api from '../api/api';
+import { useHistory } from 'react-router-dom';
 
 const Cadastro = () => {
-  const history = useHistory()
+  const history = useHistory();
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,11 +23,22 @@ const Cadastro = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateEmail(email)) {
+      alert('Por favor, insira um email válido');
+      return;
+    }
+
+    if (password.length < 6) {
+      alert('A senha deve ter no mínimo 6 caracteres');
+      return;
+    }
+
     try {
       const response = await api.post('/users', {
-        name,
-        email,
-       password
+        nome: name,
+        email: email,
+        senha: password
       });
       console.log('Usuário cadastrado com sucesso:', response.data);
 
@@ -43,21 +54,44 @@ const Cadastro = () => {
     }
   };
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   return (
     <>
       <h2>Cadastro</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome:</label>
         <br />
-        <input id="name" type="text" value={name} onChange={handleNameChange} />
+        <input 
+          id="name" 
+          type="text" 
+          value={name} 
+          onChange={handleNameChange} 
+          required
+        />
         <p />
         <label htmlFor="email">Email:</label>
         <br />
-        <input id="email" type="email" value={email} onChange={handleEmailChange} />
+        <input 
+          id="email" 
+          type="email" 
+          value={email} 
+          onChange={handleEmailChange} 
+          required
+        />
         <p />
         <label htmlFor="password">Senha:</label>
         <br />
-        <input id="password" type="password" value={password} onChange={handlePasswordChange} />
+        <input 
+          id="password" 
+          type="password" 
+          value={password} 
+          onChange={handlePasswordChange} 
+          required
+        />
         <p />
         <button type="submit">Cadastrar</button>
       </form>
