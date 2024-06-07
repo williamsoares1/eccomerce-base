@@ -1,10 +1,13 @@
 import {useContext, useEffect, useState} from "react";
-import '../styles/TelaLogin.css';
+import '../styles/login.css';
 import { UsuarioContext } from "../context/UsuarioContext";
 import { Redirect } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const TelaLogin = () => {
-  const { campoEmail, senha, email, setSenha, setEmail, validacaoLogin, senhaConferida, setUsuarioLogado } = useContext(UsuarioContext)
+  const { campoEmail, senha, email, setSenha, setEmail, validacaoLogin, senhaConferida} = useContext(UsuarioContext)
+
+  const { setUsuarioLogado } = useContext(AuthContext)
 
   const [loginEfetuado, setLoginEfetuado] = useState(false)
 
@@ -24,7 +27,7 @@ const TelaLogin = () => {
 
         if(senhaConferida){
           setUsuarioLogado(true)
-          setCampo(<Redirect to={"/"} />)
+          setCampo(<Redirect to={"/carrinho"} />)
         }else{
           setCampo(<h1>AAAAAA</h1>)
         }
