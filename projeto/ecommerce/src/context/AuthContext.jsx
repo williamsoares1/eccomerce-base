@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
   const [usuarioLogado, setUsuarioLogado] = useState(false); // Inicialmente, nenhum usuário está logado
@@ -9,5 +9,5 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado }}>
       {children}
     </AuthContext.Provider>
-  );
-};
+  )
+}

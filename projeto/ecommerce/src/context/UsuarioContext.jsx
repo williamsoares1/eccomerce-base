@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import api from "../api/api";
+import { createContext, useState } from "react"
+import api from "../api/api"
 
 const UsuarioContext = createContext({})
 

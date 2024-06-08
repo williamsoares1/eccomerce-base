@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
-import { ProdutoContext } from '../../context/ProdutosContext'
-import ProdutoCard from '../../components/Produto/ProdutoCard'
-import { PedidoContext } from '../../context/PedidoContext'
+import { ProdutoContext } from '../context/ProdutosContext'
+import ProdutoCard from '../components/Produto/ProdutoCard'
+import { PedidoContext } from '../context/PedidoContext'
 
 const Home = () => {
   const { produtos, getAll } = useContext(ProdutoContext)
