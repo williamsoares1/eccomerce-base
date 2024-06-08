@@ -1,16 +1,16 @@
-import { useContext, useState, useEffect } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import api from '../api/api';
-import { useHistory } from 'react-router-dom';
-import { PedidoContext } from '../context/PedidoContext';
-import { UsuarioContext } from '../context/UsuarioContext';
+import { useContext, useState, useEffect } from 'react'
+import { AuthContext } from '../context/AuthContext'
+import api from '../api/api'
+import { useHistory } from 'react-router-dom'
+import { PedidoContext } from '../context/PedidoContext'
+import { UsuarioContext } from '../context/UsuarioContext'
 
 const TelaCarrinho = () => {
-  const { usuarioLogado } = useContext(AuthContext);
+  const { usuarioLogado } = useContext(AuthContext)
   const { carrinho, setCarrinho } = useContext(PedidoContext)
   const { usuarioEncontrado, setUsuarioEncontrado } = useContext(UsuarioContext)
-  const [total, setTotal] = useState(0);
-  const history = useHistory();
+  const [total, setTotal] = useState(0)
+  const history = useHistory()
 
   useEffect(() => {
     if (!usuarioLogado) {
@@ -19,54 +19,55 @@ const TelaCarrinho = () => {
 
 
     const calcularTotal = () => {
-      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.qtd, 0);
-      setTotal(total);
-    };
-    calcularTotal();
-  }, [carrinho]);
+      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.qtd, 0)
+      setTotal(total)
+    }
+    calcularTotal()
+  }, [carrinho])
 
   const handleQuantidadeChange = (id, quantidade) => {
     const novoCarrinho = carrinho.map(item => item.id === id ? { ...item, qtd: Number(quantidade) } : item
-    );
-    setCarrinho(novoCarrinho);
-  };
+    )
+    setCarrinho(novoCarrinho)
+  }
 
   const handleRemoverItem = (id) => {
-    const novoCarrinho = carrinho.filter(item => item.id !== id);
-    setCarrinho(novoCarrinho);
-  };
+    const novoCarrinho = carrinho.filter(item => item.id !== id)
+    setCarrinho(novoCarrinho)
+  }
 
   const handleEsvaziarCarrinho = () => {
-    setCarrinho([]);
-  };
+    setCarrinho([])
+  }
 
   const handleFinalizarCompra = async () => {
     try {
-      const itensPedido = carrinho.map(item => ({
+      const itensPedido = carrinho.map(item => {
+        ({
           idProduto: item.id,
           qtd: item.qtd
         })
-      );
+      })
 
       const response = await api.post('/pedido', {
         idUser: usuarioEncontrado.id,
         valorTotal: total,
         itens: itensPedido
-      });
+      })
 
-      console.log('Pedido realizado com sucesso:', response.data);
+      console.log('Pedido realizado com sucesso:', response.data)
 
       await Promise.all(carrinho.map(item => {
         api.patch(`/produto/${item.id}`, { quantidade: item.quantidade - item.qtd })
       }
-      ));
+      ))
 
-      setCarrinho([]);
-      history.push('/pedidos');
+      setCarrinho([])
+      history.push('/pedidos')
     } catch (error) {
-      console.error('Erro ao finalizar compra:', error);
+      console.error('Erro ao finalizar compra:', error)
     }
-  };
+  }
 
   return (
     <div>
@@ -97,7 +98,7 @@ const TelaCarrinho = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default TelaCarrinho;
+export default TelaCarrinho
