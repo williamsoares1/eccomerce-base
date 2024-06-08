@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { ProdutoContexto } from '../context/ProdutosContext';
+import { ProdutoContext } from '../context/ProdutosContext';
 
 const TelaProdutoEsp = () => {
     const { id } = useParams();
-    const { produto, getProdutoById } = useContext(ProdutoContexto);
+    const { produto, getProdutoById } = useContext(ProdutoContext);
 
     useEffect(() => {
         getProdutoById(id);
