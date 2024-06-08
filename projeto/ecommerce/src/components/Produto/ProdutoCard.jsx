@@ -5,7 +5,8 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
   const [quantidade, setQuantidade] = useState(1)
 
   return (
-    <div className="produto-card">
+    <>
+    {produto.quantidade != 0 && <div className="produto-card">
       <img src={produto.imgUrl} alt={produto.nome} className="produto-imagem" />
       <div className="produto-detalhes">
         <h3 className="produto-nome">{produto.nome}</h3>
@@ -25,7 +26,8 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
           onChange={(e) => setQuantidade(Number(e.target.value))}
         />
       </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

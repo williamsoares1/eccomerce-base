@@ -5,48 +5,6 @@
       "nome": "Antonio",
       "email": "antonio@email.com",
       "senha": "123456"
-    },
-    {
-      "id": "216e",
-      "nome": "allan",
-      "email": "abccbd@gmail.com",
-      "senha": "12345678"
-    },
-    {
-      "id": "1595",
-      "nome": "aaaa",
-      "email": "abccbd@gmail.com",
-      "senha": "42562422"
-    },
-    {
-      "id": "aabf",
-      "nome": "allan",
-      "email": "aaaa@gmail.com",
-      "senha": "4444324252"
-    },
-    {
-      "id": "df17",
-      "nome": "allan",
-      "email": "cccc@mial.com",
-      "senha": "345678675"
-    },
-    {
-      "id": "bb6f",
-      "nome": "onee",
-      "email": "one@email.com",
-      "senha": "123456"
-    },
-    {
-      "id": "cba0",
-      "nome": "onee",
-      "email": "123@email.com",
-      "senha": "123456"
-    },
-    {
-      "id": "da1b",
-      "nome": "onee",
-      "email": "1234@email.com",
-      "senha": "123456"
     }
   ],
   "produto": [

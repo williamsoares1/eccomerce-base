@@ -29,7 +29,7 @@ const Home = () => {
         <h1 className="home-titulo">Lista de Produtos</h1>
         <div className="lista-de-produtos">
           {produtos.length > 0 ? (
-            produtos.map(produto =>(
+            produtos.map(produto => (
                 <ProdutoCard
                 key={produto.id}
                 produto={produto}

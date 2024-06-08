@@ -1,19 +1,17 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import Home from '../pages/Home'
-import { CarrinhoProvider } from '../context/CarrinhoContext'
 import { AuthProvider } from '../context/AuthContext'
 import { ProdutoProvider } from '../context/ProdutosContext'
 import { PedidoProvider } from '../context/PedidoContext'
 import { UserProvider } from "../context/UsuarioContext"
 import TelaCadastro from '../pages/TelaCadastro'
-import TelaCarrinho from '../pages/TelaCarrinho'
+import TelaCarrinho from "../pages/TelaCarrinho"
 import TelaLogin from '../pages/TelaLogin'
 import TelaProdutoEsp from '../pages/TelaProdutoEsp'
 
 const Routes = () => {
     return (
         <AuthProvider>
-            <CarrinhoProvider>
                 <UserProvider>
                     <PedidoProvider>
                         <ProdutoProvider>
@@ -35,7 +33,6 @@ const Routes = () => {
                         </ProdutoProvider>
                     </PedidoProvider>
                 </UserProvider>
-            </CarrinhoProvider>
         </AuthProvider>
     )
 }

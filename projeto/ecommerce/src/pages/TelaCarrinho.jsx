@@ -1,31 +1,32 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { CarrinhoContext } from '../context/CarrinhoContext';
 import api from '../api/api';
 import { useHistory } from 'react-router-dom';
+import { PedidoContext } from '../context/PedidoContext';
+import { UsuarioContext } from '../context/UsuarioContext';
 
 const TelaCarrinho = () => {
-  const { carrinho, setCarrinho } = useContext(CarrinhoContext);
   const { usuarioLogado } = useContext(AuthContext);
+  const { carrinho, setCarrinho } = useContext(PedidoContext)
+  const { usuarioEncontrado, setUsuarioEncontrado } = useContext(UsuarioContext)
   const [total, setTotal] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
-
     if (!usuarioLogado) {
       history.push("/login")
     }
 
+
     const calcularTotal = () => {
-      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.quantidade, 0);
+      const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.qtd, 0);
       setTotal(total);
     };
     calcularTotal();
   }, [carrinho]);
 
   const handleQuantidadeChange = (id, quantidade) => {
-    const novoCarrinho = carrinho.map(item =>
-      item.id === id ? { ...item, quantidade: Number(quantidade) } : item
+    const novoCarrinho = carrinho.map(item => item.id === id ? { ...item, qtd: Number(quantidade) } : item
     );
     setCarrinho(novoCarrinho);
   };
@@ -40,27 +41,24 @@ const TelaCarrinho = () => {
   };
 
   const handleFinalizarCompra = async () => {
-    if (!user) {
-      console.error('Usuário não está logado.');
-      history.push('/login');
-    }
-
     try {
       const itensPedido = carrinho.map(item => ({
-        idProduto: item.id,
-        quantidade: item.quantidade
-      }));
+          idProduto: item.id,
+          qtd: item.qtd
+        })
+      );
 
       const response = await api.post('/pedido', {
-        idUser: user.id,
+        idUser: usuarioEncontrado.id,
         valorTotal: total,
         itens: itensPedido
       });
 
       console.log('Pedido realizado com sucesso:', response.data);
 
-      await Promise.all(carrinho.map(item =>
-        api.put(`/produtos/${item.id}`, { quantidade: item.quantidade - item.quantidade })
+      await Promise.all(carrinho.map(item => {
+        api.patch(`/produto/${item.id}`, { quantidade: item.quantidade - item.qtd })
+      }
       ));
 
       setCarrinho([]);
@@ -86,7 +84,7 @@ const TelaCarrinho = () => {
                 <input
                   type="number"
                   min="1"
-                  value={item.quantidade}
+                  value={item.qtd}
                   onChange={(e) => handleQuantidadeChange(item.id, e.target.value)}
                 />
                 <button onClick={() => handleRemoverItem(item.id)}>Remover</button>
