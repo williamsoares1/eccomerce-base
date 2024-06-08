@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-// import Home from '../pages/Home';
+import Home from '../pages/Home/Home';
 import { CarrinhoProvider } from '../context/CarrinhoContext';
 import { AuthProvider } from '../context/AuthContext';
 import TelaCadastro from '../pages/TelaCadastro';
@@ -21,7 +21,7 @@ const Routes = () => {
                                 <Link to='/cadastro'>test</Link>
                             </div>
                 <Switch>
-                    {/* <Route exact path='/' component={Home} />
+                    <Route exact path='/' component={Home} />
                     <Route exact path='/produtos' component={TelaProdutos} />
                     <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
                     <Route exact path='/cadastro' component={TelaCadastro} />
