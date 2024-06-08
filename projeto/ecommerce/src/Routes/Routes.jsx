@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import Home from '../pages/Home/Home';
+//import Home from '../pages/Home/Home';
 import { CarrinhoProvider } from '../context/CarrinhoContext';
 import { AuthProvider } from '../context/AuthContext';
 import { ProdutoProvider } from '../context/ProdutosContext';
