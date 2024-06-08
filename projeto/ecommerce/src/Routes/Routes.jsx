@@ -21,7 +21,7 @@ const Routes = () => {
                                 <div>
                                     <Link to='/'>test</Link>
                                     <br />
-                                    <Link to='/cadastro'>test</Link>
+                                    <Link to='/carrinho'>test</Link>
                                 </div>
                                 <Switch>
                                     <Route exact path='/' component={Home} />
