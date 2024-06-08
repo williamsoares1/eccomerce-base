@@ -1,16 +1,21 @@
 import { useContext, useState, useEffect } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 import { CarrinhoContext } from '../context/CarrinhoContext';
 import api from '../api/api';
 import { useHistory } from 'react-router-dom';
 
 const TelaCarrinho = () => {
   const { carrinho, setCarrinho } = useContext(CarrinhoContext);
-  const { user } = useContext(AuthContext);
+  const { usuarioLogado } = useContext(AuthContext);
   const [total, setTotal] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
+    
+    if(!usuarioLogado){
+      history.push("/login")
+    }
+
     const calcularTotal = () => {
       const total = carrinho.reduce((acumulador, item) => acumulador + item.preco * item.quantidade, 0);
       setTotal(total);

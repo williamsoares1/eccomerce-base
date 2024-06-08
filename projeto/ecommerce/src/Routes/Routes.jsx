@@ -4,7 +4,7 @@ import { CarrinhoProvider } from '../context/CarrinhoContext';
 import { AuthProvider } from '../context/AuthContext';
 import TelaCadastro from '../pages/TelaCadastro';
 import TelaCarrinho from '../pages/TelaCarrinho';
-// import TelaLogin from '../pages/TelaLogin';
+import TelaLogin from '../pages/TelaLogin';
 // import TelaPedidos from '../pages/TelaPedidos';
 // import TelaProdutoEsp from '../pages/TelaProdutoEsp';
 // import TelaProdutos from '../pages/TelaProdutos';
@@ -16,18 +16,18 @@ const Routes = () => {
                 <CarrinhoProvider>
                         <BrowserRouter>
                             <div>
-                                <Link to='/TelaProdutos'>test</Link>
+                                <Link to='/produtos'>test</Link>
                                 <br />
-                                <Link to='/TelaCadastro'>test</Link>
+                                <Link to='/cadastro'>test</Link>
                             </div>
                 <Switch>
                     {/* <Route exact path='/' component={Home} />
-                    <Route exact path='/TelaProdutos' component={TelaProdutos} />
+                    <Route exact path='/produtos' component={TelaProdutos} />
                     <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
-                    <Route exact path='/TelaCadastro' component={TelaCadastro} />
-                    <Route exact path='/TelaLogin' component={TelaLogin} />
-                    {/* <Route exact path='/TelaCarrinho' component={TelaCarrinho} />
-                    <Route exact path='/TelaPedidos' component={TelaPedidos} /> */}
+                    <Route exact path='/cadastro' component={TelaCadastro} />
+                    <Route exact path='/login' component={TelaLogin} />
+                    <Route exact path='/carrinho' component={TelaCarrinho} />
+                    {/* <Route exact path='/pedidos' component={TelaPedidos} /> */}
                 </Switch>
 
                         <footer>Direitos reservados</footer>
