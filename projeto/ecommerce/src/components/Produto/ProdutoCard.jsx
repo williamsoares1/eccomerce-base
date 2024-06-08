@@ -1,7 +1,10 @@
 
+import { useState } from 'react';
 import './ProdutoCard.css'; // Importa o CSS para estilização
 
 const ProdutoCard = ({ produto, onAddToCart }) => {
+  const [quantidade, setQuantidade] = useState(1);
+
   return (
     <div className="produto-card">
       <img src={produto.imgUrl} alt={produto.nome} className="produto-imagem" />
@@ -12,10 +15,16 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
         <p className="produto-estoque">Estoque: {produto.quantidade}</p>
         <button 
           className="produto-add-carrinho" 
-          onClick={() => onAddToCart(produto)}
+          onClick={() => onAddToCart(produto, quantidade)}
         >
           Adicionar ao Carrinho
         </button>
+        <input
+          type="number"
+          value={quantidade}
+          min="1"
+          onChange={(e) => setQuantidade(Number(e.target.value))}
+        />
       </div>
     </div>
   );

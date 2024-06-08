@@ -13,19 +13,19 @@ const UserProvider = ({ children }) => {
     const [campoEmail, setCampoEmail] = useState()
 
     const validacaoLogin = async (email, senha) => {
-        return await api.get(`/users?email=${email}`)
+        await api.get(`/users?email=${email}`)
             .then(response => {
-                const esp = response.data.find((u, index) => index === 0)
+                const usuarioObj = response.data.find((u, index) => index === 0)
           
                 if (response.data.length !== 1) {
                   setCampoEmail(<h1>Email não encontrado</h1>)
                 }
           
-                setUsuarioEncontrado(esp)
-                setSenhaConferida(esp && esp.senha === senha)
+                setUsuarioEncontrado(usuarioObj)
+                setSenhaConferida(usuarioObj && usuarioObj.senha === senha)
             })
-            .catch(error => {
-                console.error(error)
+            .catch(e => {
+                console.error(e)
                 setSenhaConferida(false)
             });
     }
