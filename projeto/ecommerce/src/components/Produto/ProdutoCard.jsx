@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './ProdutoCard.css' // Importa o CSS para estilização
+import { Link } from 'react-router-dom'
 
 const ProdutoCard = ({ produto, onAddToCart }) => {
   const [quantidade, setQuantidade] = useState(1)
@@ -26,6 +27,7 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
           onChange={(e) => setQuantidade(Number(e.target.value))}
         />
       </div>
+      <button><Link to={`/produtos/${produto.id}`}>Sobre mais...</Link></button>
     </div>}
     </>
   )
