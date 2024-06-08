@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import '../styles/TelaLogin.css';
 import { UsuarioContext } from "../context/UsuarioContext";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const TelaLogin = () => {
@@ -22,7 +22,7 @@ const TelaLogin = () => {
       if (senhaConferida !== undefined) {
         if (senhaConferida) {
           setUsuarioLogado(true);
-          setCampo(<Redirect to={"/carrinho"} />);
+          setCampo(<Redirect to={"/"} />);
         } else {
           setCampo(<h1>Senha incorreta</h1>);
         }
@@ -57,6 +57,7 @@ const TelaLogin = () => {
             {campo}
           </div>
           <button type="submit" className="login-button">Entrar</button>
+          <button><Link to={'/cadastro'}>Cadastrar</Link></button>
         </form>
       </div>
     </>
