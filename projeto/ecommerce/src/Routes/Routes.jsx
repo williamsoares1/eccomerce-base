@@ -22,8 +22,8 @@ const Routes = () => {
                             </div>
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/produtos' component={TelaProdutos} />
-                    <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
+                    {/* <Route exact path='/produtos' component={TelaProdutos} /> */}
+                    {/* <Route exact path='/post/:id' component={TelaProdutoEsp} /> */}
                     <Route exact path='/cadastro' component={TelaCadastro} />
                     <Route exact path='/login' component={TelaLogin} />
                     <Route exact path='/carrinho' component={TelaCarrinho} />

@@ -1,22 +1,23 @@
-import { useContext, useEffect, useState } from 'react';
-import { ProdutoContexto } from '../../context/ProdutosContext';
-import ProdutoCard from '../../components/Produto/ProdutoCard';
+import { useContext, useEffect, useState } from 'react'
+import { ProdutoContext } from '../../context/ProdutosContext'
+import ProdutoCard from '../../components/Produto/ProdutoCard'
+import { PedidoContext } from '../../context/PedidoContext'
 
 const Home = () => {
-  const { produtos, getAll } = useContext(ProdutoContexto);
-  const [carrinho, setCarrinho] = useState([]);
+  const { produtos, getAll } = useContext(ProdutoContext)
+  const { carrinho, setCarrinho } = useContext(PedidoContext)
 
   useEffect(() => {
-    getAll();
+    getAll()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
-  const adicionarAoCarrinho = (produto) => {
-    setCarrinho((prevCarrinho) => [...prevCarrinho, produto]);
-    console.log('Produto adicionado ao carrinho:', produto);
-  };
+  const adicionarAoCarrinho = (produto, quantidade) => {
+    const produtoComQuantidade = { ...produto, qtd: quantidade };
+    setCarrinho((prevCarrinho) => [...prevCarrinho, produtoComQuantidade]);
+    console.log('Produto adicionado ao carrinho:', produtoComQuantidade);
+};
 
-  console.log(produtos)
   console.log(carrinho)
 
   return (
@@ -24,13 +25,13 @@ const Home = () => {
       <h1 className="home-titulo">Lista de Produtos</h1>
       <div className="lista-de-produtos">
         {produtos.length > 0 ? (
-          produtos.map(produto => (
-            <ProdutoCard 
-            key={produto.id} 
-            produto={produto} 
-            onAddToCart={adicionarAoCarrinho}
-            />
-          ))
+          produtos.map(produto =>(
+              <ProdutoCard
+              key={produto.id}
+              produto={produto}
+              onAddToCart={adicionarAoCarrinho}
+              />
+            ))
         ) : (
           <p>Carregando produtos...</p>
         )}

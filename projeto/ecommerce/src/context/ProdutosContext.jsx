@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import api from "../api/api"
 
-const ProdutoContexto = createContext({})
+const ProdutoContext = createContext({})
 
 const ProdutoProvider = ({ children }) => {
     const [produtos, setProdutos] = useState([])
@@ -16,10 +16,9 @@ const ProdutoProvider = ({ children }) => {
         const response = await api.get("/produto")
         setProdutos(response.data)
     }
-    console.log(produtos)
 
     return (
-        <ProdutoContexto.Provider value={{
+        <ProdutoContext.Provider value={{
             produtos, 
             img, 
             nome, 
@@ -36,8 +35,8 @@ const ProdutoProvider = ({ children }) => {
             getAll, 
         }}>
             {children}
-        </ProdutoContexto.Provider>
+        </ProdutoContext.Provider>
     );
 }
 
-export { ProdutoContexto, ProdutoProvider }
+export { ProdutoContext, ProdutoProvider }
