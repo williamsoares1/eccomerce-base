@@ -13,10 +13,10 @@ const Home = () => {
   }, [])
 
   const adicionarAoCarrinho = (produto, quantidade) => {
-    const produtoComQuantidade = { ...produto, qtd: quantidade };
-    setCarrinho((prevCarrinho) => [...prevCarrinho, produtoComQuantidade]);
-    console.log('Produto adicionado ao carrinho:', produtoComQuantidade);
-};
+    const produtoComQuantidade = { ...produto, qtd: quantidade }
+    setCarrinho((prevCarrinho) => [...prevCarrinho, produtoComQuantidade])
+    console.log('Produto adicionado ao carrinho:', produtoComQuantidade)
+  }
 
   console.log(carrinho)
 
@@ -37,7 +37,7 @@ const Home = () => {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
