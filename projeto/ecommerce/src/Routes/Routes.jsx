@@ -8,6 +8,8 @@ import TelaCadastro from '../pages/TelaCadastro'
 import TelaCarrinho from "../pages/TelaCarrinho"
 import TelaLogin from '../pages/TelaLogin'
 import TelaProdutoEsp from '../pages/TelaProdutoEsp'
+import TelaPedidoFinalizado from '../pages/TelaPedidos'
+import TelaPedidos from '../pages/TelaPedidos'
 
 const Routes = () => {
     return (
@@ -17,9 +19,11 @@ const Routes = () => {
                         <ProdutoProvider>
                             <BrowserRouter>
                                 <div>
-                                    <Link to='/'>test</Link>
+                                    <Link to='/'>home</Link>
                                     <br />
-                                    <Link to='/carrinho'>test</Link>
+                                    <Link to='/carrinho'>carrinho</Link>
+                                    <br />
+                                    <Link to='/pedidos'>pedidos</Link>
                                 </div>
                                 <Switch>
                                     <Route exact path='/' component={Home} />
@@ -27,6 +31,7 @@ const Routes = () => {
                                     <Route exact path='/cadastro' component={TelaCadastro} />
                                     <Route exact path='/login' component={TelaLogin} />
                                     <Route exact path='/carrinho' component={TelaCarrinho} />
+                                    <Route exact path='/pedidos' component={TelaPedidos}/>
                                 </Switch>
                                 <footer>Direitos reservados</footer>
                             </BrowserRouter>
