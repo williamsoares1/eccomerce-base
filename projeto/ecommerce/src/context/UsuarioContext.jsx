@@ -4,9 +4,6 @@ import api from "../api/api";
 const UsuarioContext = createContext({})
 
 const UserProvider = ({ children }) => {
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
     const [usuarios, setUsuarios] = useState([])
     const [usuarioEncontrado, setUsuarioEncontrado] = useState({})
     const [senhaConferida, setSenhaConferida] = useState(undefined)
@@ -37,7 +34,7 @@ const UserProvider = ({ children }) => {
 
     return (        
         <UsuarioContext.Provider value={
-            { nome, email, senha, usuarios, campoEmail, setEmail, setSenha, setUsuarios, getAll, validacaoLogin, usuarioEncontrado, senhaConferida }
+            { usuarios, campoEmail, getAll, validacaoLogin, usuarioEncontrado, senhaConferida }
         }>
             {children}
         </UsuarioContext.Provider>

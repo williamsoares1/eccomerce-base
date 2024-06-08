@@ -1,11 +1,9 @@
-import { createContext, useEffect, useState } from "react";
-import api from "../api/api";
+import { createContext, useEffect, useState } from "react"
+import api from "../api/api"
 
 const PedidoContext = createContext({})
 
 const PedidoProvider = ({children}) => {
-    const [valorTotal, setValorTotal] = useState()
-    const [iduser, setIduser] = useState()
     const [carrinho, setCarrinho] = useState([])
     const [pedidos, setPedidos] = useState([])
 
@@ -15,7 +13,7 @@ const PedidoProvider = ({children}) => {
     }
 
     return (
-        <PedidoContext.Provider value={{getAll ,valorTotal ,iduser ,carrinho, pedidos, setValorTotal, setIduser, setCarrinho, setPedidos}}>{children}</PedidoContext.Provider>
+        <PedidoContext.Provider value={{ getAll, carrinho, pedidos, setCarrinho, setPedidos }}>{children}</PedidoContext.Provider>
     )
     
 }

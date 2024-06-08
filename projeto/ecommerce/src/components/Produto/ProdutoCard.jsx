@@ -1,9 +1,8 @@
-
-import { useState } from 'react';
-import './ProdutoCard.css'; // Importa o CSS para estilização
+import { useState } from 'react'
+import './ProdutoCard.css' // Importa o CSS para estilização
 
 const ProdutoCard = ({ produto, onAddToCart }) => {
-  const [quantidade, setQuantidade] = useState(1);
+  const [quantidade, setQuantidade] = useState(1)
 
   return (
     <div className="produto-card">
@@ -27,8 +26,8 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 
 
