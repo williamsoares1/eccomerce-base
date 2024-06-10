@@ -17,6 +17,12 @@
       "nome": "lucas",
       "email": "lucas@gmail.com",
       "senha": "123456"
+    },
+    {
+      "id": "20cf",
+      "nome": "Allan Lima Angelo",
+      "email": "wilha@gmail.com",
+      "senha": "00000000"
     }
   ],
   "produto": [
@@ -27,7 +33,7 @@
       "descricao": "Um mouse top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": -1
+      "quantidade": 0
     },
     {
       "id": "2",
@@ -36,7 +42,7 @@
       "descricao": "Um teclado top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": -3
+      "quantidade": 0
     }
   ],
   "pedido": [
@@ -232,6 +238,44 @@
         {
           "idProduto": "1",
           "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "c940",
+      "valorTotal": 3000,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 15
+        },
+        {
+          "idProduto": "2",
+          "qtd": 15
+        }
+      ]
+    },
+    {
+      "id": "c38f",
+      "valorTotal": 1000,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 5
+        },
+        {
+          "idProduto": "1",
+          "qtd": 5
+        }
+      ]
+    },
+    {
+      "id": "6f26",
+      "valorTotal": 500,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 5
         }
       ]
     }
