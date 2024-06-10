@@ -19,4 +19,3 @@ const PedidoProvider = ({children}) => {
 }
 
 export {PedidoContext, PedidoProvider}
-
