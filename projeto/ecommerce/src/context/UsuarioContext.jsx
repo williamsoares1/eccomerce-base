@@ -26,7 +26,7 @@ const UserProvider = ({ children }) => {
             .catch(e => {
                 console.error(e)
                 setSenhaConferida(false)
-            });
+            })
     }
 
     const getAll = async () => {

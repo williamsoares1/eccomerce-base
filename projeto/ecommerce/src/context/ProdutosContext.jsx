@@ -10,17 +10,28 @@ const ProdutoProvider = ({ children }) => {
     const getAll = async () => {
         const response = await api.get("/produto")
         setProdutos(response.data)
-    };
+    }
 
     const getProdutoById = async (id) => {
         const response = await api.get(`/produto/${id}`)
         setProduto(response.data)
-    };
+    }
+
+    const filtragem = async (e) => {
+        const response = await api.get(`/produto?categoria=${e.target.value}`)
+        setProdutos(response.data)
+    }
+
+    const cancelarFiltro = () => {
+        getAll()
+    }
 
     return (
         <ProdutoContext.Provider value={{
             produtos,
             produto,
+            filtragem,
+            cancelarFiltro,
             getAll,
             getProdutoById
         }}>

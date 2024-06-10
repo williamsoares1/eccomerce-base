@@ -7,45 +7,15 @@
       "senha": "123456"
     },
     {
-      "id": "216e",
-      "nome": "allan",
-      "email": "abccbd@gmail.com",
-      "senha": "12345678"
-    },
-    {
-      "id": "1595",
-      "nome": "aaaa",
-      "email": "abccbd@gmail.com",
-      "senha": "42562422"
-    },
-    {
-      "id": "aabf",
-      "nome": "allan",
-      "email": "aaaa@gmail.com",
-      "senha": "4444324252"
-    },
-    {
-      "id": "df17",
-      "nome": "allan",
-      "email": "cccc@mial.com",
-      "senha": "345678675"
-    },
-    {
-      "id": "bb6f",
-      "nome": "onee",
-      "email": "one@email.com",
+      "id": "1c30",
+      "nome": "marcelo",
+      "email": "marcelos@gmail.com",
       "senha": "123456"
     },
     {
-      "id": "cba0",
-      "nome": "onee",
-      "email": "123@email.com",
-      "senha": "123456"
-    },
-    {
-      "id": "da1b",
-      "nome": "onee",
-      "email": "1234@email.com",
+      "id": "5753",
+      "nome": "lucas",
+      "email": "lucas@gmail.com",
       "senha": "123456"
     }
   ],
@@ -57,7 +27,7 @@
       "descricao": "Um mouse top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": 25
+      "quantidade": -1
     },
     {
       "id": "2",
@@ -66,7 +36,7 @@
       "descricao": "Um teclado top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": 25
+      "quantidade": -3
     }
   ],
   "pedido": [
@@ -82,6 +52,186 @@
         {
           "idProduto": "2",
           "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "cb73",
+      "idUser": "8b15",
+      "valorTotal": 500,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 2
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "10ac",
+      "idUser": "1c30",
+      "valorTotal": 700,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 4
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "1bd4",
+      "idUser": "1c30",
+      "valorTotal": 700,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 4
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "031d",
+      "idUser": "1c30",
+      "valorTotal": 500,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 3
+        },
+        {
+          "idProduto": "1",
+          "qtd": 2
+        }
+      ]
+    },
+    {
+      "id": "fa15",
+      "idUser": "1c30",
+      "valorTotal": 900,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 5
+        },
+        {
+          "idProduto": "1",
+          "qtd": 4
+        }
+      ]
+    },
+    {
+      "id": "7e84",
+      "idUser": "1c30",
+      "valorTotal": 200,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 1
+        },
+        {
+          "idProduto": "1",
+          "qtd": 1
+        }
+      ]
+    },
+    {
+      "id": "8ffe",
+      "idUser": "1c30",
+      "valorTotal": 600,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 3
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "acde",
+      "idUser": "1c30",
+      "valorTotal": 200,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 1
+        },
+        {
+          "idProduto": "2",
+          "qtd": 1
+        }
+      ]
+    },
+    {
+      "id": "2268",
+      "idUser": "1c30",
+      "valorTotal": 600,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 3
+        },
+        {
+          "idProduto": "2",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "6d9b",
+      "idUser": "1c30",
+      "valorTotal": 500,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 3
+        },
+        {
+          "idProduto": "2",
+          "qtd": 2
+        }
+      ]
+    },
+    {
+      "id": "704a",
+      "idUser": "1c30",
+      "valorTotal": 700,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 4
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
+        }
+      ]
+    },
+    {
+      "id": "4616",
+      "idUser": "5753",
+      "valorTotal": 700,
+      "itens": [
+        {
+          "idProduto": "2",
+          "qtd": 4
+        },
+        {
+          "idProduto": "1",
+          "qtd": 3
         }
       ]
     }
