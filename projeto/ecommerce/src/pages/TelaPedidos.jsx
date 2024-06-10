@@ -1,43 +1,43 @@
-import { useContext, useState, useEffect } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import api from '../api/api'
-import { UsuarioContext } from '../context/UsuarioContext'
+import { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import api from '../api/api';
+import { UsuarioContext } from '../context/UsuarioContext';
 
 const TelaPedidos = () => {
-  const { usuarioLogado } = useContext(AuthContext)
-  const { usuarioEncontrado } = useContext(UsuarioContext)
-  const [pedidos, setPedidos] = useState([])
-  const [produtos, setProdutos] = useState([])
+  const { usuarioLogado } = useContext(AuthContext);
+  const { usuarioEncontrado } = useContext(UsuarioContext);
+  const [pedidos, setPedidos] = useState([]);
+  const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
         if (usuarioLogado) {
-          const response = await api.get(`/pedido?idUser=${usuarioEncontrado.id}`)
-          setPedidos(response.data)
+          const response = await api.get(`/pedido?idUser=${usuarioEncontrado.id}`);
+          setPedidos(response.data);
         }
       } catch (error) {
-        console.error('Erro ao buscar pedidos:', error)
+        console.error('Erro ao buscar pedidos:', error);
       }
-    }
+    };
 
     const fetchProdutos = async () => {
       try {
-        const response = await api.get('/produto')
-        setProdutos(response.data)
+        const response = await api.get('/produto');
+        setProdutos(response.data);
       } catch (error) {
-        console.error('Erro ao buscar produtos:', error)
+        console.error('Erro ao buscar produtos:', error);
       }
-    }
+    };
 
-    fetchPedidos()
-    fetchProdutos()
-  }, [usuarioLogado])
+    fetchPedidos();
+    fetchProdutos();
+  }, [usuarioLogado]);
 
   const getNomeProduto = (idProduto) => {
-    const produto = produtos.find((p) => p.id === idProduto)
-    return produto ? produto.nome : 'Produto não encontrado'
-  }
+    const produto = produtos.find((p) => p.id === idProduto);
+    return produto ? produto.nome : 'Produto não encontrado';
+  };
 
   return (
     <div>
@@ -68,7 +68,7 @@ const TelaPedidos = () => {
         <p>Você precisa estar logado para ver seus pedidos.</p>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default TelaPedidos
+export default TelaPedidos;

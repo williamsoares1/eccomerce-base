@@ -1,0 +1,20 @@
+@import "../index.css";
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: .875em;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 10px;
+    justify-content: space-around;
+    border-top: 2px solid var(--cor_appearence_1);
+    color: var(--cor_fonte_escura_1);
+    background: var(--cor_principal);
+}
+
+footer > h3{
+    align-self: center;
+}

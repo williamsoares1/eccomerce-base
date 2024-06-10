@@ -33,7 +33,7 @@
       "descricao": "Um mouse top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": 0
+      "quantidade": 600
     },
     {
       "id": "2",
@@ -42,7 +42,7 @@
       "descricao": "Um teclado top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": 0
+      "quantidade": 600
     }
   ],
   "pedido": [
@@ -277,6 +277,7 @@
           "idProduto": "2",
           "qtd": 5
         }
+
       ]
     }
   ]

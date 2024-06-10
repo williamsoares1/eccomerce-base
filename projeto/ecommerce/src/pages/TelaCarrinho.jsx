@@ -10,6 +10,7 @@ const TelaCarrinho = () => {
   const [total, setTotal] = useState(0);
   const history = useHistory();
 
+
   useEffect(() => {
     if (!usuarioLogado) {
       history.push("/login");
