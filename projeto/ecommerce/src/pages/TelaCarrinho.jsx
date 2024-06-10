@@ -7,7 +7,7 @@ import { UsuarioContext } from '../context/UsuarioContext'
 
 const TelaCarrinho = () => {
   const { usuarioLogado } = useContext(AuthContext)
-  const { carrinho, setCarrinho } = useContext(PedidoContext)
+  const { carrinho, setCarrinho, buscarPorUsuario } = useContext(PedidoContext)
   const { usuarioEncontrado, setUsuarioEncontrado } = useContext(UsuarioContext)
   const [total, setTotal] = useState(0)
   const history = useHistory()
@@ -63,7 +63,8 @@ const TelaCarrinho = () => {
       ))
 
       setCarrinho([])
-      history.push('/pedidos')
+      buscarPorUsuario(usuarioEncontrado.id)
+      history.push(`/pedido`)
     } catch (error) {
       console.error('Erro ao finalizar compra:', error)
     }

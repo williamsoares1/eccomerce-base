@@ -8,7 +8,6 @@ import TelaCadastro from '../pages/TelaCadastro'
 import TelaCarrinho from "../pages/TelaCarrinho"
 import TelaLogin from '../pages/TelaLogin'
 import TelaProdutoEsp from '../pages/TelaProdutoEsp'
-import TelaPedidoFinalizado from '../pages/TelaPedidos'
 import TelaPedidos from '../pages/TelaPedidos'
 import Menu from '../components/Menu/Menu'
 import Rodape from '../components/Rodape/Rodape'
@@ -27,7 +26,7 @@ const Routes = () => {
                                     <Route exact path='/cadastro' component={TelaCadastro} />
                                     <Route exact path='/login' component={TelaLogin} />
                                     <Route exact path='/carrinho' component={TelaCarrinho} />
-                                    <Route exact path='/pedidos' component={TelaPedidos}/>
+                                    <Route exact path='/pedido' component={TelaPedidos}/>
                                 </Switch>
                                 <Rodape/>
                             </BrowserRouter>

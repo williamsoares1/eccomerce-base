@@ -1,0 +1,17 @@
+@import "../index.css";
+
+.login-box{
+    padding: 20px;
+    border-radius: 4px;
+    border-left: 2px solid var(--cor_appearence_1);
+    border-top: 2px solid var(--cor_appearence_1);
+    font-size: 1.125em;
+}
+
+.login-box > form input{
+    padding: 10px;
+}
+
+.login-box > form input::placeholder{
+    background-color: red;
+}
