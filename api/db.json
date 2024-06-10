@@ -17,6 +17,12 @@
       "nome": "lucas",
       "email": "lucas@gmail.com",
       "senha": "123456"
+    },
+    {
+      "id": "20cf",
+      "nome": "Allan Lima Angelo",
+      "email": "wilha@gmail.com",
+      "senha": "00000000"
     }
   ],
   "produto": [
@@ -27,7 +33,7 @@
       "descricao": "Um mouse top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": -60
+      "quantidade": 600
     },
     {
       "id": "2",
@@ -36,7 +42,7 @@
       "descricao": "Um teclado top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": -3
+      "quantidade": 600
     }
   ],
   "pedido": [
@@ -236,150 +242,42 @@
       ]
     },
     {
-      "id": "02d3",
-      "idUser": "8b15",
-      "valorTotal": 400,
+      "id": "c940",
+      "valorTotal": 3000,
       "itens": [
-        null
+        {
+          "idProduto": "1",
+          "qtd": 15
+        },
+        {
+          "idProduto": "2",
+          "qtd": 15
+        }
       ]
     },
     {
-      "id": "345a",
-      "idUser": "8b15",
+      "id": "c38f",
+      "valorTotal": 1000,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 5
+        },
+        {
+          "idProduto": "1",
+          "qtd": 5
+        }
+      ]
+    },
+    {
+      "id": "6f26",
       "valorTotal": 500,
       "itens": [
-        null
-      ]
-    },
-    {
-      "id": "c7a6",
-      "idUser": "8b15",
-      "valorTotal": 800,
-      "itens": [
-        null,
-        null
-      ]
-    },
-    {
-      "id": "2a6c",
-      "idUser": "8b15",
-      "valorTotal": 400,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "b8bb",
-      "idUser": "8b15",
-      "valorTotal": 400,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "e91b",
-      "idUser": "8b15",
-      "valorTotal": 500,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "6c84",
-      "idUser": "8b15",
-      "valorTotal": 500,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "9457",
-      "idUser": "8b15",
-      "valorTotal": 500,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "142a",
-      "idUser": "8b15",
-      "valorTotal": 400,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "57cb",
-      "idUser": "8b15",
-      "valorTotal": 200,
-      "itens": [
-        null,
-        null
-      ]
-    },
-    {
-      "id": "6b4b",
-      "idUser": "8b15",
-      "valorTotal": 100,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "1af2",
-      "idUser": "8b15",
-      "valorTotal": 100,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "e907",
-      "idUser": "8b15",
-      "valorTotal": 200,
-      "itens": [
-        null,
-        null
-      ]
-    },
-    {
-      "id": "6976",
-      "idUser": "8b15",
-      "valorTotal": 100,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "ae63",
-      "idUser": "8b15",
-      "valorTotal": 500,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "4323",
-      "idUser": "8b15",
-      "valorTotal": 100,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "f6cb",
-      "idUser": "8b15",
-      "valorTotal": 500,
-      "itens": [
-        null
-      ]
-    },
-    {
-      "id": "20aa",
-      "idUser": "8b15",
-      "valorTotal": 300,
-      "itens": [
-        null
+        {
+          "idProduto": "2",
+          "qtd": 5
+        }
+
       ]
     }
   ]
