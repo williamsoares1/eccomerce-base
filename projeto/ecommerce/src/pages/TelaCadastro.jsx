@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useState, useContext } from 'react'
+import { useHistory, Redirect } from 'react-router-dom'
 import api from '../api/api'
+import { AuthContext } from "../context/AuthContext"
 
 const Cadastro = () => {
   const history = useHistory()
-
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { usuarioLogado } = useContext(AuthContext);
 
   const handleNameChange = (e) => {
     setName(e.target.value)

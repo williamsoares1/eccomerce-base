@@ -5,14 +5,14 @@ import logoCarrinho from "../../assets/imgs/cart.svg"
 
 const Menu = () => {
     return (
-        <>
+        <>  
             <header>
                 <div>
-                    <a href="/"><img src={logo}/></a>
+                    <Link to="/"><img src={logo}/></Link>
                 </div>
                 <div>
                     <Link to='/'>Produtos</Link>
-                    <Link to='/pedidos'>Pedidos</Link>
+                    <Link to='/pedido'>Pedidos</Link>
                 </div>
                 <div>
                     <Link to='/carrinho'><img src={logoCarrinho}/></Link>

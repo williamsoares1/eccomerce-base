@@ -3,7 +3,7 @@
 footer{
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     padding: 20px;
     font-size: .875em;
     display: flex;

@@ -15,24 +15,24 @@ import Rodape from '../components/Rodape/Rodape'
 const Routes = () => {
     return (
         <AuthProvider>
-                <UserProvider>
-                    <PedidoProvider>
-                        <ProdutoProvider>
-                            <BrowserRouter>
-                                <Menu/>
-                                <Switch>
-                                    <Route exact path='/' component={Home} />
-                                    <Route exact path='/produtos/:id' component={TelaProdutoEsp} />
-                                    <Route exact path='/cadastro' component={TelaCadastro} />
-                                    <Route exact path='/login' component={TelaLogin} />
-                                    <Route exact path='/carrinho' component={TelaCarrinho} />
-                                    <Route exact path='/pedido' component={TelaPedidos}/>
-                                </Switch>
-                                <Rodape/>
-                            </BrowserRouter>
-                        </ProdutoProvider>
-                    </PedidoProvider>
-                </UserProvider>
+            <UserProvider>
+                <PedidoProvider>
+                    <ProdutoProvider>
+                        <BrowserRouter>
+                            <Menu/>
+                            <Switch>
+                                <Route exact path='/' component={Home} />
+                                <Route exact path='/produtos/:id' component={TelaProdutoEsp} />
+                                <Route exact path='/cadastro' component={TelaCadastro} />
+                                <Route exact path='/login' component={TelaLogin} />
+                                <Route exact path='/carrinho' component={TelaCarrinho} />
+                                <Route exact path='/pedido' component={TelaPedidos}/>
+                            </Switch>
+                            <Rodape/>
+                        </BrowserRouter>
+                    </ProdutoProvider>
+                </PedidoProvider>
+            </UserProvider>
         </AuthProvider>
     )
 }

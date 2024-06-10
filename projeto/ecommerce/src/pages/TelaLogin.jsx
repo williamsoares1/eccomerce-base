@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const TelaLogin = () => {
   const { campoEmail, senha, email, setSenha, setEmail, validacaoLogin, senhaConferida } = useContext(UsuarioContext);
-  const { setUsuarioLogado } = useContext(AuthContext);
+  const { setUsuarioLogado, usuarioLogado } = useContext(AuthContext);
   const [loginEfetuado, setLoginEfetuado] = useState(false);
   const [campo, setCampo] = useState();
 
@@ -33,31 +33,38 @@ const TelaLogin = () => {
 
   return (
     <>
+    {usuarioLogado && <Redirect to="/"/>}
       <div className="login-box">
       <h2>Login</h2>
         <form onSubmit={validarSubmit}>
           <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <label htmlFor="email">Email:
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Informe seu email: "
+                required
+              />
+            </label>
             {campoEmail}
           </div>
           <div>
-            <label htmlFor="senha">Senha:</label>
-            <input
-              type="password"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
+            <label htmlFor="senha">Senha:
+              <input
+                type="password"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                placeholder="Informe sua senha: "
+                required
+              />
+            </label>
             {campo}
           </div>
-          <button type="submit">Entrar</button>
-          <button><Link to={'/cadastro'}>Cadastrar</Link></button>
+          <div>
+            <button type="submit">Entrar</button>
+            <button><Link to={'/cadastro'}>Cadastrar</Link></button>
+          </div>
         </form>
       </div>
     </>

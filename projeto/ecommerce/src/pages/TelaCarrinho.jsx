@@ -10,7 +10,6 @@ const TelaCarrinho = () => {
   const [total, setTotal] = useState(0);
   const history = useHistory();
 
-
   useEffect(() => {
     if (!usuarioLogado) {
       history.push("/login");
@@ -80,7 +79,7 @@ const TelaCarrinho = () => {
       ));
 
       setCarrinho([]);
-      history.push('/pedidos');
+      history.push('/pedido');
     } catch (error) {
       console.error('Erro ao finalizar compra:', error);
       alert(error.message);

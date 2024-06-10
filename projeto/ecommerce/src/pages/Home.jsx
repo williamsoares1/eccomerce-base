@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { ProdutoContext } from '../context/ProdutosContext';
-import ProdutoCard from '../components/Produto/ProdutoCard';
+import ProdutoCard from '../components/Produto/Produto';
 import { PedidoContext } from '../context/PedidoContext';
 import { AuthContext } from '../context/AuthContext';
 import { Redirect } from 'react-router-dom';
@@ -11,13 +11,13 @@ const Home = () => {
   const { setCarrinho } = useContext(PedidoContext);
   const { usuarioLogado } = useContext(AuthContext);
   const [produtosDisponiveis, setProdutosDisponiveis] = useState([]);
+  const [termoPesquisa, setTermoPesquisa] = useState("")
 
   useEffect(() => {
     getAll();
-  }, [getAll]);
+  }, []);
 
   useEffect(() => {
-    // Filtrar os produtos com quantidade maior que zero
     const produtosFiltrados = produtos.filter(produto => produto.quantidade > 0);
     setProdutosDisponiveis(produtosFiltrados);
   }, [produtos]);
@@ -34,38 +34,53 @@ const Home = () => {
         alert('Quantidade indisponível em estoque.');
       }
     } catch (error) {
-      console.error('Erro ao verificar o estoque:', error);
+      console.error('Erro ao verificar o estoque:', error)
     }
   };
 
   return (
     <>
-      <select onChange={filtragem}>
-        <option value="eletronico">eletronico</option>
-        <option value="variedades">variedades</option>
-      </select>
-      <button onClick={cancelarFiltro}>X</button>
-
-      {usuarioLogado ? (
-        <div className="home-container">
-          <h1 className="home-titulo">Lista de Produtos</h1>
-          <div className="lista-de-produtos">
-            {produtosDisponiveis.length > 0 ? (
-              produtosDisponiveis.map(produto => (
-                <ProdutoCard
-                  key={produto.id}
-                  produto={produto}
-                  onAddToCart={adicionarAoCarrinho}
-                />
-              ))
-            ) : (
-              <p>Nenhum produto disponível no momento.</p>
-            )}
-          </div>
+      {!usuarioLogado && <Redirect to="/login" />}
+    
+      <div>
+        <div>
+          <select onChange={filtragem}>
+            <option value="eletronico">eletronico</option>
+            <option value="variedades">variedades</option>
+          </select>
+          <button onClick={cancelarFiltro}>X</button>
         </div>
-      ) : (
-        <Redirect to="/login" />
-      )}
+
+        <div>
+          <input 
+            type="text" 
+            placeholder="Pesquisar por nome do produto" 
+            value={termoPesquisa}
+            onChange={(e) => setTermoPesquisa(e.target.value)}
+            />
+        </div>
+      </div>
+
+      <div className="home-container">
+        <h1 className="home-titulo">Lista de Produtos</h1>
+        <div className="lista-de-produtos">
+          {produtosDisponiveis.length > 0 ? (
+            produtos
+            .filter(produto => 
+              produto.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+            )
+            .map(produto => (
+              <ProdutoCard
+                key={produto.id}
+                produto={produto}
+                onAddToCart={adicionarAoCarrinho}
+              />
+            ))
+          ) : (
+            <p>Nenhum produto disponível no momento.</p>
+          )}
+        </div>
+      </div>
     </>
   );
 };
