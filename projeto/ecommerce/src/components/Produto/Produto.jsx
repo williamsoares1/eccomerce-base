@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import api from '../../api/api'
 import { Link } from 'react-router-dom'
+import './Produto.css'
 
 const ProdutoCard = ({ produto, onAddToCart }) => {
   const [quantidade, setQuantidade] = useState(1)
@@ -45,7 +46,7 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
             min="1"
             max={produto.quantidade}
             onChange={handleChange}
-            />
+          />
         </div>
         <button className='btn_home_sobre'><Link to={`/produtos/${produto.id}`}>Sobre mais...</Link></button>
       </div>

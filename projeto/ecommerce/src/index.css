@@ -1,4 +1,4 @@
-:root{
+:root {
   --cor_principal: #fff;
   --cor_secundaria: #222;
   --cor_appearence_1: #00000017;
@@ -8,7 +8,7 @@
   --cor_gradiente: linear-gradient(90deg, rgba(163,55,114,1) 0%, rgb(228, 43, 43) 42%, rgba(252,176,69,1) 85%);
 }
 
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -16,13 +16,13 @@
   font-size: 16px;
 }
 
-body{
+body {
   width: 100vw;
   height: 100vh;
   background-image: var(--cor_principal)
 }
 
-#root{
+#root {
   max-width: 1120px;
   display: flex;
   justify-content: center;
