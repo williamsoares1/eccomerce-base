@@ -1,11 +1,11 @@
 @import "../index.css";
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     width: 100vw;
-    padding: 20px;
-    font-size: .875em;
+    padding: 10px 20px;
+    font-size: 0.875em;
     display: flex;
     flex-wrap: wrap-reverse;
     gap: 10px;
@@ -15,6 +15,6 @@ footer{
     background: var(--cor_principal);
 }
 
-footer > h3{
+footer > h3 {
     align-self: center;
 }
