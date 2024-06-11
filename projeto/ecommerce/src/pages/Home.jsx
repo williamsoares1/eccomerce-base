@@ -4,7 +4,8 @@ import ProdutoCard from '../components/Produto/Produto';
 import { PedidoContext } from '../context/PedidoContext';
 import { AuthContext } from '../context/AuthContext';
 import { Redirect } from 'react-router-dom';
-import api from '../api/api'; // Importe a instância api aqui
+import api from '../api/api';
+import "../styles/home.css"
 
 const Home = () => {
   const { produtos, filtragem, cancelarFiltro, getAll } = useContext(ProdutoContext);
@@ -41,44 +42,46 @@ const Home = () => {
   return (
     <>
       {!usuarioLogado && <Redirect to="/login" />}
-    
-      <div>
+    <div className='produto_container'>
+    <div className='filtros'>
         <div>
           <select onChange={filtragem}>
             <option value="eletronico">eletronico</option>
             <option value="variedades">variedades</option>
           </select>
-          <button onClick={cancelarFiltro}>X</button>
         </div>
 
         <div>
           <input 
             type="text" 
-            placeholder="Pesquisar por nome do produto" 
+            placeholder="Buscar produto" 
             value={termoPesquisa}
             onChange={(e) => setTermoPesquisa(e.target.value)}
             />
         </div>
+
+        <button onClick={cancelarFiltro}>X</button>
       </div>
 
-      <div className="home-container">
-        <h1 className="home-titulo">Lista de Produtos</h1>
-        <div className="lista-de-produtos">
-          {produtosDisponiveis.length > 0 ? (
-            produtos
-            .filter(produto => 
-              produto.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
-            )
-            .map(produto => (
-              <ProdutoCard
-                key={produto.id}
-                produto={produto}
-                onAddToCart={adicionarAoCarrinho}
-              />
-            ))
-          ) : (
-            <p>Nenhum produto disponível no momento.</p>
-          )}
+        <div>
+          <h1>Lista de Produtos</h1>
+          <div>
+            {produtosDisponiveis.length > 0 ? (
+              produtos
+              .filter(produto => 
+                produto.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
+              )
+              .map(produto => (
+                <ProdutoCard
+                  key={produto.id}
+                  produto={produto}
+                  onAddToCart={adicionarAoCarrinho}
+                />
+              ))
+            ) : (
+              <p>Nenhum produto disponível no momento.</p>
+            )}
+          </div>
         </div>
       </div>
     </>
