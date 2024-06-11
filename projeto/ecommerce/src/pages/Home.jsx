@@ -68,7 +68,7 @@ const Home = () => {
               produtos
               .filter(produto => 
                 produto.nome.toLowerCase().includes(termoPesquisa.toLowerCase())
-              )
+              ).filter(produto => produto.quantidade > 0)
               .map(produto => (
                 <ProdutoCard
                   key={produto.id}

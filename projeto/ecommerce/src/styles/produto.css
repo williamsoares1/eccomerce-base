@@ -38,19 +38,18 @@
 }
 
 .produto-preco {
-  color: #2a9d8f;
+  color: var(--cor_link_hover);
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .produto-estoque {
-  color: #f4a261;
+  color: var(--cor_link_1);
   margin-bottom: 16px;
 }
 
 .produto-add-carrinho {
-  background-color: #264653;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -58,10 +57,6 @@
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.produto-add-carrinho:hover {
-  background-color: #2a9d8f;
 }
 
 input[type="number"] {
@@ -73,9 +68,9 @@ input[type="number"] {
 }
 
 .produto-card button {
-  background: #e76f51;
+  background: var(--cor_gradiente);
   color: white;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   padding: 8px 16px;
   margin-top: 8px;
@@ -84,7 +79,7 @@ input[type="number"] {
 }
 
 .produto-card button:hover {
-  background: #f4a261;
+  border: 1px solid var(--cor_secundaria);
 }
 
 .produto-card button a {

@@ -42,7 +42,7 @@
       "descricao": "Um teclado top com luzinha",
       "preco": 140,
       "categoria": "eletronico",
-      "quantidade": 20
+      "quantidade": 16
     },
     {
       "id": "3",
@@ -60,7 +60,7 @@
       "descricao": "Um teclado top sem luzinha",
       "preco": 110,
       "categoria": "eletronico",
-      "quantidade": 25
+      "quantidade": 21
     },
     {
       "id": "5",
@@ -110,7 +110,7 @@
     {
       "id": "10",
       "imgUrl": "https://m.media-amazon.com/images/I/71Lc4JZkw+L.__AC_SX300_SY300_QL70_ML2_.jpg",
-      "nome": "Headset Gamer",
+      "nome": "Headset Gamer 2",
       "descricao": "Um headset gamer top",
       "preco": 170,
       "categoria": "eletronico",
@@ -126,18 +126,6 @@
       "quantidade": 12
     }
   ],
-  "pedido": [
-    {
-      "id": "abd4",
-      "idUser": "8b15",
-      "valorTotal": 700,
-      "itens": [
-        {
-          "idProduto": "2",
-          "qtd": 5
-        }
-      ]
-    }
-  ],
+  "pedido": [],
   "ratings": []
 }
