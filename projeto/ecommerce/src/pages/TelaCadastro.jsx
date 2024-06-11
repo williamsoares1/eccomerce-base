@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { useHistory, Redirect } from 'react-router-dom'
 import api from '../api/api'
 import { AuthContext } from "../context/AuthContext"
+import "../styles/login_cadastro.css"
 
 const Cadastro = () => {
   const history = useHistory()
@@ -71,40 +72,51 @@ const Cadastro = () => {
 
   return (
     <>
-      <h2>Cadastro</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nome:</label>
-        <br />
+      <div className="login-cadastro-box">
+  <h2>Cadastro</h2>
+  <form onSubmit={handleSubmit}>
+    <div>
+      <label htmlFor="name">Nome:
         <input
-          id="name"
           type="text"
+          id="name"
           value={name}
           onChange={handleNameChange}
+          placeholder="Informe seu nome: "
           required
         />
-        <p />
-        <label htmlFor="email">Email:</label>
-        <br />
+      </label>
+    </div>
+    <div>
+      <label htmlFor="email">Email:
         <input
-          id="email"
           type="email"
+          id="email"
           value={email}
           onChange={handleEmailChange}
+          placeholder="Informe seu email: "
           required
         />
-        <p />
-        <label htmlFor="password">Senha:</label>
-        <br />
+      </label>
+    </div>
+    <div className='box_senha'>
+      <label htmlFor="password">Senha:
         <input
-          id="password"
           type="password"
+          id="password"
           value={password}
           onChange={handlePasswordChange}
+          placeholder="Informe sua senha: "
           required
         />
-        <p />
-        <button type="submit">Cadastrar</button>
-      </form>
+      </label>
+    </div>
+    <div>
+      <button className="btn_cadastro" type="submit">Cadastrar</button>
+    </div>
+  </form>
+</div>
+
     </>
   )
 }

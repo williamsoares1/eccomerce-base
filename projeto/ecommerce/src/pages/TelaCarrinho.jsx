@@ -3,12 +3,15 @@ import { AuthContext } from '../context/AuthContext';
 import api from '../api/api';
 import { useHistory } from 'react-router-dom';
 import { PedidoContext } from '../context/PedidoContext';
+import "../styles/produto.css"
+import { UsuarioContext } from '../context/UsuarioContext';
 
 const TelaCarrinho = () => {
   const { usuarioLogado } = useContext(AuthContext);
   const { carrinho, setCarrinho } = useContext(PedidoContext);
   const [total, setTotal] = useState(0);
   const history = useHistory();
+  const { usuarioEncontrado } = useContext(UsuarioContext)
 
   useEffect(() => {
     if (!usuarioLogado) {
@@ -67,12 +70,10 @@ const TelaCarrinho = () => {
       }));
 
       const response = await api.post('/pedido', {
-        idUser: usuarioLogado.id,
+        idUser: usuarioEncontrado.id,
         valorTotal: total,
         itens: itensPedido
       });
-
-      console.log('Pedido realizado com sucesso:', response.data);
 
       await Promise.all(carrinho.map(item =>
         api.patch(`/produto/${item.id}`, { quantidade: item.quantidade - item.qtd })
@@ -86,9 +87,8 @@ const TelaCarrinho = () => {
     }
   }
 
-
   return (
-    <div>
+    <div className="carrinho_container">
       <h2>Meu Carrinho</h2>
       {carrinho.length === 0 ? (
         <p>O carrinho está vazio.</p>
@@ -96,23 +96,33 @@ const TelaCarrinho = () => {
         <>
           <ul>
             {carrinho.map(item => (
-              <li key={item.id}>
-                <img src={item.imgUrl} alt={item.nome} width="50" />
-                <p>{item.nome}</p>
-                <p>R${item.preco.toFixed(2)}</p>
-                <input
-                  type="number"
-                  min="1"
-                  value={item.qtd}
-                  onChange={(e) => handleQuantidadeChange(item.id, e.target.value)}
-                />
-                <button onClick={() => handleRemoverItem(item.id)}>Remover</button>
+              <li key={item.id} className="produto-card">
+                <img src={item.imgUrl} alt={item.nome} className="produto-imagem" />
+                <div className="produto-detalhes">
+                  <h3 className="produto-nome">{item.nome}</h3>
+                  <p className="produto-preco">Preço: R$ {item.preco.toFixed(2)}</p>
+                  <input
+                    type="number"
+                    value={item.qtd}
+                    min="1"
+                    max={item.quantidade}
+                    onChange={(e) => handleQuantidadeChange(item.id, e.target.value)}
+                    className="produto-quantidade"
+                  />
+                  <button className="produto-add-carrinho" onClick={() => handleRemoverItem(item.id)}>
+                    Remover
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
           <h3>Total: R${total.toFixed(2)}</h3>
-          <button onClick={handleEsvaziarCarrinho}>Esvaziar Carrinho</button>
-          <button onClick={handleFinalizarCompra}>Finalizar Compra</button>
+          <button className="produto-add-carrinho" onClick={handleEsvaziarCarrinho}>
+            Esvaziar Carrinho
+          </button>
+          <button className="produto-add-carrinho" onClick={handleFinalizarCompra}>
+            Finalizar Compra
+          </button>
         </>
       )}
     </div>

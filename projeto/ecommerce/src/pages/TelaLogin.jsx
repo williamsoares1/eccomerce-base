@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import '../styles/login.css';
+import '../styles/login_cadastro.css';
 import { UsuarioContext } from "../context/UsuarioContext";
 import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -34,7 +34,7 @@ const TelaLogin = () => {
   return (
     <>
     {usuarioLogado && <Redirect to="/"/>}
-      <div className="login-box">
+      <div className="login-cadastro-box">
       <h2>Login</h2>
         <form onSubmit={validarSubmit}>
           <div>
@@ -61,9 +61,9 @@ const TelaLogin = () => {
             </label>
             {campo}
           </div>
-          <div>
+          <div className="btns_container">
             <button className="btn_login_submit" type="submit">Entrar</button>
-            <button className="btn_login_cadastro"><Link to={'/cadastro'}>Cadastrar</Link></button>
+            <button className="btn_cadastro"><Link to={'/cadastro'}>Cadastrar</Link></button>
           </div>
         </form>
       </div>

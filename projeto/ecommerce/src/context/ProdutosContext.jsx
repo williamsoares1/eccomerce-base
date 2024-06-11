@@ -48,16 +48,12 @@ const ProdutoProvider = ({ children }) => {
         setProdutos(response.data)
     }
 
-    const cancelarFiltro = () => {
-        getAll()
-    }
-
     return (
         <ProdutoContext.Provider value={{
             produtos,
             produto,
             filtragem,
-            cancelarFiltro,
+            setProdutos,
             getAll,
             getProdutoById,
             getProductRating,

@@ -12,10 +12,6 @@ const PedidoProvider = ({children}) => {
         setPedidos(response.data)
     }
 
-    const buscaPorId = async (id) => {
-        const response = await api.get
-    }
-
     return (
         <PedidoContext.Provider value={{ getAll, carrinho, pedidos, setCarrinho, setPedidos }}>{children}</PedidoContext.Provider>
     )

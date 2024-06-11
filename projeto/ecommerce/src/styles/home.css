@@ -5,6 +5,7 @@
     gap: 15px;
     flex-direction: column;
     margin-top: 35px;
+    padding-bottom: 70px;
 }
 
 .filtros{
@@ -19,7 +20,7 @@
 
 .filtros input{    
     font-size: 1.2em;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 2px;
     padding: 5px;
     width: 160px;
@@ -38,10 +39,7 @@
     color: var(--cor_principal);
 }
 
-.filtros button{
-    background: var(--cor_link_1);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
+.filtros select option{
+    padding: 5px;
+    background: var(--cor_secundaria);
 }
