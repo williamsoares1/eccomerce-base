@@ -1,0 +1,47 @@
+@import "../index.css";
+
+.produto_container{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+.filtros{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: absolute;
+    top: 75px;
+}
+
+.filtros input{    
+    font-size: 1.2em;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    width: 160px;
+}
+
+.filtros input:hover{
+    border: 1px solid var(--cor_link_1);
+}
+
+.filtros select{
+    border-radius: 3px;
+    font-size: 1.2em;
+    padding: 5px;
+    border: none;
+    background: var(--cor_gradiente);
+    color: var(--cor_principal);
+}
+
+.filtros button{
+    background: var(--cor_link_1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+}

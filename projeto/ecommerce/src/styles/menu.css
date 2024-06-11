@@ -10,7 +10,7 @@ header {
     align-items: center;
     justify-content: space-around;
     border-bottom: 2px solid var(--cor_appearence_1);
-    z-index: 1000;
+    z-index: 1;
 }
 
 header>div:nth-child(1) {

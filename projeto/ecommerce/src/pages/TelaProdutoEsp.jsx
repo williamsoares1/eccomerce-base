@@ -57,12 +57,6 @@ const TelaProdutoEsp = () => {
             onChange={handleRatingChange}
             className="produto-rating"
             />
-          <button 
-            className="produto-add-carrinho" 
-            onClick={() => onAddToCart(produto)}
-            >
-            Adicionar ao Carrinho
-          </button>
         </Box>
       </Box>
     </>

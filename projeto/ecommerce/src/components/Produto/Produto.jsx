@@ -30,14 +30,14 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
 
   return (
     <>
-      <div className="produto-card">
-        <img src={produto.imgUrl} alt={produto.nome} className="produto-imagem" />
-        <div className="produto-detalhes">
-          <h3 className="produto-nome">{produto.nome}</h3>
-          <p className="produto-descricao">{produto.descricao}</p>
-          <p className="produto-preco">Preço: R$ {produto.preco.toFixed(2)}</p>
-          <p className="produto-estoque">Estoque: {produto.quantidade}</p>
-          <button className="produto-add-carrinho" onClick={handleAddToCart}>
+      <div>
+        <img src={produto.imgUrl} alt={produto.nome}/>
+        <div>
+          <h3>{produto.nome}</h3>
+          <p>{produto.descricao}</p>
+          <p>Preço: R$ {produto.preco.toFixed(2)}</p>
+          <p>Estoque: {produto.quantidade}</p>
+          <button className='btn_home_carrinho' onClick={handleAddToCart}>
             Adicionar ao Carrinho
           </button>
           <input
@@ -48,7 +48,7 @@ const ProdutoCard = ({ produto, onAddToCart }) => {
             onChange={handleChange}
           />
         </div>
-        <button><Link to={`/produtos/${produto.id}`}>Sobre mais...</Link></button>
+        <button className='btn_home_sobre'><Link to={`/produtos/${produto.id}`}>Sobre mais...</Link></button>
       </div>
     </>
   )
