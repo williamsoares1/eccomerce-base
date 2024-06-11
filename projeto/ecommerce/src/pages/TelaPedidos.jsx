@@ -11,18 +11,18 @@ const TelaPedidos = () => {
   const [produtos, setProdutos] = useState([])
 
   useEffect(() => {
+    const fetchPedidos = async () => {
+      try {
+          const response = await api.get(`/pedido?idUser=${usuarioEncontrado.id}`);
+          setPedidos(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar pedidos:', error);
+      }
+    }
+    
     fetchPedidos()
     fetchProdutos()
-  }, []);
-
-  const fetchPedidos = async () => {
-    try {
-        const response = await api.get(`/pedido?idUser=${usuarioEncontrado.id}`);
-        setPedidos(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar pedidos:', error);
-    }
-  };
+  }, [])
 
   const fetchProdutos = async () => {
     try {
@@ -31,7 +31,7 @@ const TelaPedidos = () => {
     } catch (error) {
       console.error('Erro ao buscar produtos:', error);
     }
-  };
+  }
 
   const getNomeProduto = (idProduto) => {
     const produto = produtos.find((p) => p.id === idProduto);

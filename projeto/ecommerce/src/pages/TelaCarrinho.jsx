@@ -4,12 +4,14 @@ import api from '../api/api';
 import { useHistory } from 'react-router-dom';
 import { PedidoContext } from '../context/PedidoContext';
 import "../styles/produto.css"
+import { UsuarioContext } from '../context/UsuarioContext';
 
 const TelaCarrinho = () => {
   const { usuarioLogado } = useContext(AuthContext);
   const { carrinho, setCarrinho } = useContext(PedidoContext);
   const [total, setTotal] = useState(0);
   const history = useHistory();
+  const { usuarioEncontrado } = useContext(UsuarioContext)
 
   useEffect(() => {
     if (!usuarioLogado) {
@@ -68,12 +70,10 @@ const TelaCarrinho = () => {
       }));
 
       const response = await api.post('/pedido', {
-        idUser: usuarioLogado.id,
+        idUser: usuarioEncontrado.id,
         valorTotal: total,
         itens: itensPedido
       });
-
-      console.log('Pedido realizado com sucesso:', response.data);
 
       await Promise.all(carrinho.map(item =>
         api.patch(`/produto/${item.id}`, { quantidade: item.quantidade - item.qtd })
