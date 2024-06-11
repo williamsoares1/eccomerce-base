@@ -8,7 +8,7 @@ import api from '../api/api';
 import "../styles/home.css"
 
 const Home = () => {
-  const { produtos, filtragem, cancelarFiltro, getAll } = useContext(ProdutoContext);
+  const { produtos, filtragem, getAll } = useContext(ProdutoContext);
   const { setCarrinho } = useContext(PedidoContext);
   const { usuarioLogado } = useContext(AuthContext);
   const [produtosDisponiveis, setProdutosDisponiveis] = useState([]);
@@ -59,8 +59,6 @@ const Home = () => {
             onChange={(e) => setTermoPesquisa(e.target.value)}
             />
         </div>
-
-        <button onClick={cancelarFiltro}>X</button>
       </div>
 
         <div>

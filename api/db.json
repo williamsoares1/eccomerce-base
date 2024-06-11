@@ -39,7 +39,7 @@
       "descricao": "Um mouse top",
       "preco": 100,
       "categoria": "eletronico",
-      "quantidade": 574
+      "quantidade": 570
     },
     {
       "id": "2",
@@ -366,6 +366,16 @@
         {
           "idProduto": "1",
           "qtd": 1
+        }
+      ]
+    },
+    {
+      "id": "7c0e",
+      "valorTotal": 400,
+      "itens": [
+        {
+          "idProduto": "1",
+          "qtd": 4
         }
       ]
     }
