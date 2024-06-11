@@ -22,7 +22,11 @@
     border: none;
     border-radius: 2px;
     padding: 5px;
-    width: 170px;
+    width: 160px;
+}
+
+.filtros input:hover{
+    border: 1px solid var(--cor_link_1);
 }
 
 .filtros select{
@@ -30,12 +34,12 @@
     font-size: 1.2em;
     padding: 5px;
     border: none;
-    background: var(--cor_secundaria);
+    background: var(--cor_gradiente);
     color: var(--cor_principal);
 }
 
 .filtros button{
-    background-color: red;
+    background: var(--cor_link_1);
     width: 32px;
     height: 32px;
     border-radius: 50%;
