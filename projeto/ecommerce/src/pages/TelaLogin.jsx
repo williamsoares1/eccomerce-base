@@ -62,8 +62,8 @@ const TelaLogin = () => {
             {campo}
           </div>
           <div>
-            <button type="submit">Entrar</button>
-            <button><Link to={'/cadastro'}>Cadastrar</Link></button>
+            <button className="btn_login_submit" type="submit">Entrar</button>
+            <button className="btn_login_cadastro"><Link to={'/cadastro'}>Cadastrar</Link></button>
           </div>
         </form>
       </div>
